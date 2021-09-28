@@ -5,6 +5,6 @@ This is a python cheat sheet put together by following the video "[[Python Progr
 It is worth noting that this video is dated from 2014 and there is one small part at the end of the video that no longer works identically. To fix this, I called attributes from a parent class in the child class as so:
 
 	self._Animal__name
-(See line 357 of the .py file)
+(See line 357 of PythonCheatSheet.py))
 
 This also follows the [Pygame in 90 Minutes - For Beginners](https://www.youtube.com/watch?v=jO6qQDNa2UY) video by TechWithTim, which I used as a first introduction to Pygame and found the video useful and informative, covering a number of elements I had not seen before
