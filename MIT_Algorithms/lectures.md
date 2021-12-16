@@ -92,3 +92,58 @@ Second 8 is on Shortest path Algorithms and graphs
 Third 8 lectures are dynamic programming
 
 
+### L2: Data Structures and Dynamic Arrays
+Interface (API/ADT) vs Data Structure
+What you want to do vs how you do it
+
+Interface
+ - specification
+ - what data can store
+- What you can do with the data (what operations you can do on it)
+- A problem statement
+
+ structures
+ - representation
+ - how to store data
+ - This gives you algorithms to support those operations
+  - a solution to that problem
+
+
+ 2 main interfaces and special cases of them
+
+- Sets
+- Sequences
+
+2 main data structure tools/approaches
+- Arrays
+- pointer-based/linked data structures
+
+Sequences
+    Static squence interface
+        Number of items doesnt change, but the actual items might
+            - build(n) - build the data structure of size n
+            - len() - return the number of items (n)
+            - iter_sequence - output the items in the current order
+            - get(i) - get any single item
+            - set(i, x) - set item i to value x
+
+        In python this is a list (kinda). In general, this is called a static array
+
+"Array" - just means a concecutive chunk of memory 
+You can get and set parts of an array in constant time
+length is constant time
+build/iter_sequence are in linear time
+
+This is the memory allocation model
+    Assume you can allocate an array of size n in theta(n) time
+
+
+    Dynamic Sequences
+        insert_at(i, x) - insert value i at location x
+        delete_at(i) - delete item at location i and move every item left 1
+
+
+    Linked list
+        
+
+
