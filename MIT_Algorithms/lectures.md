@@ -144,6 +144,52 @@ This is the memory allocation model
 
 
     Linked list
+        Store items in a bunch of nodes in memory
+        Each node has an item in it and "next" field
+            Think of these as OOP classes/objects with 2 attrs
+            the "item" field has the item in the Sequence
+            the "next" pointer points to the next item anywhere in memory
+
+            The DS is represented by "head" and "length"
+
+        This is a pointer-based list, as each item of data is an array of size 2 in RAM
+        The list is in the CPU and uses pointers to point to each array
+            (thats the next field - the pointer to the next item in the list)
+
+    
+Dynamic sequence operations
+    Static array
+    - Insert and delete anywhere costs theta(n) time
+        - shifting items along, deleting and writing each item again
+        - Changing the length of the array means creating a whole new static array of different size
+
+    Linked list
+    - Insert/delete at item 0 are constant time
+    - Everything else is slow
+        - Accessing the ith item takes theta(i) time
+            - at worst, thena(n) for the final item
+    
+    - A doubly-linked list will also store a "tail", storing a pointer to the last item
+        - This is called DS augmentation, adding extra data to the structure, but it needs to be kept up to date
+
+    Dynamic arrays (Python lists)
+        - Relax constraint size(array) = n
+        - Insetad of setting an exact size, we make an array a rough size
+            - How roughly is up for debate
+            - This means usually throwing away constant factors
+        - size of the array is theta(n) 
+            - at most, a constant * n
+
+        They create the sequence and then leave some blank items at the end
+            - current length is now stored in the DS too 
+            - length <= size, or we're overflowing
+
+            If the size is bigger than the length, the dynamic array is rebuilt to be bigger 
+            Deciding on the factor to increase the array size is complicated
+
         
+Amortization:
+    Operation takes T(n) amortized time if any k operations take at most k t(n) time
+
 
 
