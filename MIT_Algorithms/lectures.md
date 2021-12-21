@@ -192,4 +192,10 @@ Amortization:
     Operation takes T(n) amortized time if any k operations take at most k t(n) time
 
 
+### Problem Session 1
+First problem has 3 functions and you have to order them based on Asymtotic complexity
+
+Asymptotics = How does the function look disregarding what n is actually equal to
+    how does it act with stupid large numbers (IE, assume n=1bn and then see what's basically a rounding error at that point)
+
 
