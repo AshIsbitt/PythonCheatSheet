@@ -198,4 +198,6 @@ First problem has 3 functions and you have to order them based on Asymtotic comp
 Asymptotics = How does the function look disregarding what n is actually equal to
     how does it act with stupid large numbers (IE, assume n=1bn and then see what's basically a rounding error at that point)
 
+Amortized - (in terms of a data structure) - If I have an operation, the definition of it running in amortized K time, if I do N operations, it'll never take more than N*K time. 
+    
 
