@@ -200,4 +200,68 @@ Asymptotics = How does the function look disregarding what n is actually equal t
 
 Amortized - (in terms of a data structure) - If I have an operation, the definition of it running in amortized K time, if I do N operations, it'll never take more than N*K time. 
     
+### Sets and Sorting
+
+Sets are one type of data interface - you can keep adding items to it and query them.
+They're containers with the following operations 
+    - build(A)
+    - len
+    
+    - find(k)
+
+    - insert(x)
+    - delete(k)
+
+Sets are python lists
+Every operation should take linear time
+
+destructive - overwrites the input array
+In place - uses O(1) extra space
+    - IE think of a variable holding a loop counter
+
+Selection sort
+    Take the highest number and stick it at the end
+    Every number is before the highest
+
+    loop through this process
+    (an array of length 1 is already in sorted order)
+
+    ```py
+    def prefix_max(A, i):
+        '''return index of maximum in A[:i + 1]'''
+        if i > 0:
+            j = prefix_max(A, i = 1)
+            if A[i] < A[j]:
+                return j
+        return i
+    ```
+
+    This isn't the best way to do this, it's more theoretical, but it's a good example
+
+Merge Sort
+    Take every pair of numbers, and sort those pairs
+    Then take every 2 pairs together (4 numbers)
+    Sort those
+    recurse this until you're back to 1 list
+
+    When you're at exactly 2 lists, you basically loop throguh both from the end and see which numbers are bigger
+
+    ```py
+    def merge_sort(A, a=0, b=None):
+        '''sort A[A:B]'''
+        if b is None: 
+            b = len(A)
+
+        if 1 < b - a:
+            c = (a + b + 1) // 2
+            merge_sort(A, a, c)
+            merge_sort(A, c, b)
+            L, R = A[a:c], A[c:b]
+            merge(L, R, A, len(L), len(R), a, b)
+
+            # read "c" as meaning "centre"
+    ```
+
+
+
 
