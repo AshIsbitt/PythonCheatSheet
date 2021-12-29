@@ -264,4 +264,111 @@ Merge Sort
 
 
 
+# L4 - Hashing
+- Prove that you cant find (k) faster than O(log n)
+- Show how to find (k) faster thann O(log n)
+
+Two types of sets already
+    - Array - everything in O(n)
+    - Sorted Array
+        - build O(n log n)
+        - find(k) O(log n)
+        - Insert O(n)
+        - Delete O(n)
+        - Find min/max O(1)
+        - Find prev/next O(log n)
+
+Today's focus - the static find. (Can it be faster than log n)
+Make insert/delete faster than O(n), make them dynamic
+
+Comparison model - why we can't do faster than log n for find
+    The items being stored can be thought of as black boxes
+    Until I have to check between them and use a key to compare them
+
+    Most of the algorithms we've seen so far are comparison algorithms
+    We can do all the basic comparison forms on This
+        They all boil down to "this statement is true or false"
+
+    This can be easily represented by a binary tree - each node is a computation we can make
+        - "How many leaves can this tree have?"
+            n + 1
+        Longest path = height of the tree
+        What is the height of the tree?
+            min height = at least log(n) height (theta (log n))
+            This maens we have to use log time to see if a value is in the set
+
+    If I have an item that has key 10, and i'm going to have an array storing This
+    in the array at location 9 (the 10th location)
+        This is a direct access array
+
+        finding and inserting are all at constant time
+        searching/sorting is based
+
+Direct Access Arrays
+    - build - u
+    - find - linear
+    - insert/delete - linear
+    - find min/max - u
+    - find prev/next - u
+
+    (See u as the size of the largest key we can store)
+
+    This is a set data structure
+
+You can take a set/sequence and implement a sequence/set, they just wont have particularly well implemented
+
+to get this to run in constant time, u < 2^w (where w is the "word" your CPU can take)
+If we have a number of keys u but want to store it in a DAA of size m (which is theta(n))
+    The length of the keys u need to be mapped in a range 0 - m-1
+    We can map it down using a function, somehow
+
+    The problem is that we may have to store multiple pieces of data at one index location in the DAA
+    if u is n^2, we'll end up with the nth space in DAA holding n items, so it's not that good
+    This is called a collision
+
+    1 solution
+        if m is greater than n, just stick the second hashed item there to avoid a collision
+        This is called open addressing
+        Python uses this method
+        This is notoriously difficult to analyse
+
+    2nd solution
+        Instead of storing the hashed data in the hash table
+        we store the key and then add a pointer to another data structure
+
+        This is an idea called chaining, pointing from one DS to anther
+        usually this uses a linked list, but you can use anything you want
+
+At initialisation, a hash table is an empty data structure
+Picking a good hash function
+    - Any good function is going to encounter collisions anyway
+    - Simplest method is just to use modulus
+        - This is called the division method
+        - Take a key and set it to k % m so it wraps around the hash table
+        - This is basically what python does
+
+    - Use a non-deterministic hash function 
+        - Don't pick a single hash function at start, pick a random one at rumtime
+
+Universal hash function
+    - 'universal' is a descriptor, there are many functions that could be described as universal
+
+    h a b(k) = (((a k + b)mod p) mod m)
+    H(p, m) = {h a b(k) | a, b...
+
+    Univerality - probability of any specific hash function key colliding with another key
+                    is less than/equal to 1/m for any different two keys in my universe
+
+Indicator random variable
+    Var with some probability = 1
+    1 - probability == 0
+
+    Xij is a var over choice in the hash function
+    Xij == 1 if h(ki) = h(kj) (IE if they collide), otherwise it's 0
+
+    Size of the chain at h(ki) in the hash table == Xi == sum j/0 over u-1 of Xij
+
+    expected value of this chain length over random choice
+        heH{Xi} = (choosing a hash value from this family of the length of the chain)
+
 
