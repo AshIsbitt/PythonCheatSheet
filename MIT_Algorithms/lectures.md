@@ -371,4 +371,21 @@ Indicator random variable
     expected value of this chain length over random choice
         heH{Xi} = (choosing a hash value from this family of the length of the chain)
 
+### Problem Set 2
+Master theorem - T(n) = a T(n/b) + f(n)
+This is basically a way to explain what you do with a binary tree
+f(n) = O(n^logb of a - epsilon) for any positive epsilon
+(This is only an upper bound)
+
+There are two other function formulae here that I didn't copy down. They're all to do with calculating how fast a recursive problem is
+It'll come out if you google it
+
+Binary searching of an unknown length data set
+- go to item 2i from i=0
+- until k <= 2i
+- This takes log(k) time
+
+2^i-1 <= k <= 2i
+
+Now I have an upper bound, then I can binary search
 
