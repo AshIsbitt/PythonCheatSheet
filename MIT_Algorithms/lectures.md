@@ -389,3 +389,71 @@ Binary searching of an unknown length data set
 
 Now I have an upper bound, then I can binary search
 
+### L5: Linear sorting
+
+Hash tabke
+    - build n(e)
+    - find log(e)
+    - insert/delete log(e)
+    - find min/max n
+    - find prev/next n
+
+Python dicts/sets are rebuilt with amortized bounds when new space is needed
+If I know that all my keys are unique, I don't have ot check the whole table
+
+Sorting algorithms
+    insertion sort
+        - time O(n^2)
+        - in-place - yes
+        - stable - yes
+        - comments - O(nk) for k-proximate
+
+    selection sort
+        - time O(n^2)
+        - in-place - yes
+        - stable - No
+        - comments - O(n) swaps
+
+    merge sort
+        - time O(n log n)
+        - in-place - no
+        - stable - yes
+        - comments - stable, optimal comparison
+
+Comparison model
+    Some comparisons happen
+    They branch in a binary sense (it can be generalised)
+    At least n+1 outputs
+    Height must be (log n)
+    
+What is the output of a sorting algorithm
+    - A list
+
+How do I sort a list of tuples, where each tuple is a representation of a number in 
+base n (if n is 5, 17 is (3, 2) because 3x5 + 2 == 17)
+    This is basically k div n and k mod n
+
+    Tuple sorting
+        Turn them into base 5 ints ((3,2) becomes 32) and sort them like that
+        In the case of ties, you want the more significant value to take preference, so you do it last
+
+        Counting sort
+            Create a Direct Access Array
+            At each key K we store a pointer to a chain
+                We need a sequence data structure at K
+
+            We add items to the end of teh sequence and when it adds to the DAA
+
+            0  1  2  3  4
+            =============
+            03
+                22
+                    32
+                        42
+                        44
+
+            This takes O(n+u) where u is the size of the sequence
+            You make sure that you sort the tuples by the most significant bit first, then create the sequence above
+
+    
+
