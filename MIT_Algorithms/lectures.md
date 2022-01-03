@@ -456,4 +456,65 @@ base n (if n is 5, 17 is (3, 2) because 3x5 + 2 == 17)
             You make sure that you sort the tuples by the most significant bit first, then create the sequence above
 
     
+### L6: Binary Trees part 1
+Binary tree and traversal order
+subtree ops: first, successor, insert, delete
+set binary tree (binary search tree)
+sequence binary tree via via subtree-size algorithm
 
+efficient == logorithmic
+
+Binary trees let us represent a sorted order of items dynamically
+
+Any node (x) will have a parent pointer, a left child, and a right child
+It will also contain an item
+There's a single unique nood with no parent, the root node
+
+            A
+        B       C
+    D       E
+F
+
+The subtree of a node is everything below the node/all the descendants
+Depth of the node is the number of its ancestors/all the above nodes
+The height is how many paths downward from the node
+    B is height 2, A is height 3, C is 0
+
+Traversal order
+F, D, B, E, A, C
+For every node, nodes in x.left are before x
+nodes in x.right are after x
+
+If I want to iterate all the nodes within a subtree
+    I just iterate through the left, then output x, then output the right
+
+That's for sequences ^^
+For sets, you just take the sorted order
+
+Playing aroudn with traversal order/Traversal operations
+    Subtree.first(n)
+        - given n, this creates a subtree and calculates what comes first in traversal order
+        - Go left as much as possible
+            node = node.left
+    
+    successor node
+        next after node in tree's traversal order
+        - If node.right: return subtree.First
+        - else walk up the tree until we go up and left branch
+
+    Both of these are in O(h) where h is the height of the tree
+
+    subtree.insert_after(n, new)
+        In traversal order, add new after item n
+
+            If there's no right child, put new there
+            else, put new as successsor(n),left
+
+    subtree.delete(n)
+        if n is a leaf, detatch from parent
+        else if node.left exists
+            swap node with predeccessor
+            recursively delete predeccessor
+
+
+        
