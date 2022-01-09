@@ -517,4 +517,19 @@ Playing aroudn with traversal order/Traversal operations
             recursively delete predeccessor
 
 
-        
+### Binary trees PT 2
+AVL trees are "height balance" trees.
+
+Set binary trees == binary search trees
+
+
+Sequence binary trees
+    traversal order = sequence order
+    
+    size(node) = number of nodes in subtree(node)
+
+    subtree augmentation
+        each node can stoore a constant number of extra fields/properties
+        subtree properties are things that can be computed from properties of the children
+
+
